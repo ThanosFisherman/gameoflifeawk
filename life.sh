@@ -69,7 +69,10 @@
       size = cols*lines; #megethos pinaka
 
       for (run=1; run<=runs; run++) {
-        printf("\033[H\033[J\n");
+        #printf("\033[H\033[J");
+       
+        system(sprintf("tput cup 0 0"));
+        system(sprintf("tput civis"));
         #system("clear");
         display(data);
 		
@@ -91,8 +94,8 @@
         }
 
         data = newdata;  #vale tin newdata pisw sti metavliti data
-        if ( speed > 0) system(sprintf("sleep %.1f", speed));  #steile stin konsola tin entoli sleep
+        system(sprintf("sleep %.1f", speed));  #steile stin konsola tin entoli sleep
       }
-
+      system(sprintf("tput cnorm"));
       
     }' #telos AWK
