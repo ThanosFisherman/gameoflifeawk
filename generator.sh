@@ -7,8 +7,13 @@
     BEGIN { srand(); }
     END {
       for (y=0; y<cols; y++) {
-        for (x=0; x<lines; x++)
-          printf("%d",  rand() * 2  );
+        for (x=0; x<lines; x++) {
+         ran = int(rand()*2);
+         if (ran == 1)
+          printf("*");
+         else
+          printf(" ");
+        }  
         printf("\n");
       }
     }' </dev/null

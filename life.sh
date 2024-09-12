@@ -5,7 +5,7 @@
 	#e-mail: psaridis@gmail.com
 	
     awk -v runs=${1:-10} -v speed=${2:-0.5} ' #optional parameters ean o xristis de dosei arithmo epanalipsewn kai taxytita xrisimopoiountai to 10 kai 0.5 apo default	
-	BEGIN { DEAD = "0"; ALIVE = "1"; 
+	BEGIN { DEAD = " "; ALIVE = "*"; 
 	printf("\033[1;35;44m --------------------------------\033[1;40m\n");
 	printf("\033[1;35;44m |                              |\033[1;40m\n");
 	printf("\033[1;35;44m | welcome to the game of life  |\033[1;40m\n");
@@ -15,7 +15,7 @@
 	printf("\033[1;35;44m | \033[1;32m      Thanos Psaridis        \033[1;35m|\033[1;40m\n");
 	printf("\033[1;35;44m |                              |\033[1;40m\n");
 	printf("\033[1;35;44m --------------------------------\033[1;40m\n");
-	system("sleep 5");
+	system("sleep 2");
 	}
 	
       function checkAlive(cell, neighbor) {
@@ -69,8 +69,8 @@
       size = cols*lines; #megethos pinaka
 
       for (run=1; run<=runs; run++) {
-        printf("\033[H\033[1;33;40mGeneration %d:\033[K", run);
-		printf("\n");
+        printf("\033[H\033[J\n");
+        #system("clear");
         display(data);
 		
         newdata="";
